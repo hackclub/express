@@ -1,6 +1,6 @@
 // script.js
 function loadMessages() {
-    fetch('http://localhost:3000/messages')
+    fetch('/messages')
       .then(response => response.json())
       .then(data => {
         const messagesContainer = document.getElementById('messages-container');
@@ -23,7 +23,7 @@ function loadMessages() {
     event.preventDefault();
     const message = document.getElementById('message').value;
     if (message.trim() !== '') {
-      fetch('http://localhost:3000/messages', {
+      fetch('/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

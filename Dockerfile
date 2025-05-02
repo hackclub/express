@@ -1,23 +1,29 @@
-# Use Node.js LTS version
 FROM node:20-slim
 
-# Create app directory
+# Install NGINX and dumb-init
+RUN apt-get update && \
+    apt-get install -y nginx dumb-init && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set work directory
 WORKDIR /usr/src/app
 
-# Copy package files
+# Copy backend files
 COPY app/package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy app source
 COPY app/ .
 
-# Copy static assets
-COPY static/ ../static/
+# Copy frontend static files to NGINX root
+COPY static/ /var/www/html/
 
-# Expose the port your app runs on
-EXPOSE 3000
+# Copy NGINX config
+COPY nginx/default.conf /etc/nginx/sites-available/default
 
-# Start the application
-CMD ["node", "app.js"] 
+# Replace the default nginx site
+RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+# Expose HTTP port
+EXPOSE 80
+
+# Start both Node and NGINX using dumb-init
+CMD ["dumb-init", "sh", "-c", "node app.js & nginx -g 'daemon off;'"]
