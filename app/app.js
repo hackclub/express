@@ -8,7 +8,10 @@ const PORT = 3000;
 
 // Middleware to parse JSON body
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../static')));
+
+const staticPath = path.join(__dirname, '../static');
+console.log('Serving static files from:', staticPath);
+app.use(express.static(staticPath));
 
 // Enable CORS
 app.use(cors());
@@ -61,7 +64,16 @@ app.get('/messages', async (req, res) => {
 
 // Return the static HTML file on root path
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../static/index.html'));
+    const indexPath = path.join(__dirname, '../static/index.html');
+    console.log('Root handler: resolved index.html path:', indexPath);
+    fs.access(indexPath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('index.html does not exist at:', indexPath);
+        } else {
+            console.log('index.html found at:', indexPath);
+        }
+        res.sendFile(indexPath);
+    });
 });
 
 
