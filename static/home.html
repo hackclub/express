@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>EXPRESS</title>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/home.css" />
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+        <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        style-src 'self' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        script-src 'self';
+        connect-src 'self';
+        img-src 'self';
+        ">
+
+    </head>      
+<body>
+  <header>
+    <h1>EXPRESS</h1>
+    <h2>Athena's Intro to Backend Programming Using Node.js & Express</h2>
+    <p>Code a backend – earn stickers, knowledge, and artefacts :3</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Express Yourself!</h2>
+      <form id="message-form">
+        <label for="message">Send a message to other space explorers viewing this page</label><br/>
+        <textarea id="message" rows="1" cols="50" required></textarea><br/>
+      <button id="send-button" type="submit"><img src="/public/click.gif" alt=""></button>
+      </form>
+    </section>
+
+    <section>
+      <h3>Messages</h3>
+      <div id="messages-container">
+        <p>Loading messages...</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Info, Requirements, Prizes</h2>
+
+      <h3>Who?</h3>
+      <p>
+        This YSWS is for participants of the
+        <a href="https://athena.award.hackclub.com" target="_blank">Athena Award</a>.
+        It’s a great beginner project if you're looking to start learning backend development.
+      </p>
+
+      <h3>What is Backend Development?</h3>
+      <p>
+        Backend development refers to coding the <em>server-side</em> of an application. In contrast, frontend development focuses on the <em>client-side</em>, which users interact with directly in their browsers.
+      </p>
+      <p>
+        Still confused? That’s okay! By the end of this YSWS, you'll be a backend development expert!
+      </p>
+
+      <h3>What?</h3>
+      <p>
+        For this YSWS, you're going to build a backend (CRUD) application using
+        <a href="https://nodejs.org/en" target="_blank">Node.js</a> and
+        <a href="https://expressjs.com/" target="_blank">Express</a>
+        that fits the theme "express"— to communicate clearly, operating at high speed, a programing API, to squeeze out a scent  
+      </p>
+
+      <h3>Requirements</h3>
+      <ol>
+        <li>Build a CRUD app using Node.js and Express. Users should be able to create, read, update, and delete content.</li>
+        <li>Your app must relate to the word “express”—your voice, style, experiences, or what you want to say to the world.</li>
+        <li>Upload your progress to <a href="https://hackatime.hackclub.com" target="_blank">HackaTime</a> or post in the <a href="https://hackclub.slack.com/archives/C05T8E9GY64" target="_blank">#days-of-service</a> channel.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Technical Guide and Resources</h2>
+
+      <h3>What is CRUD?</h3>
+      <p>It stands for:</p>
+      <ul>
+        <li><strong>Create</strong></li>
+        <li><strong>Read</strong></li>
+        <li><strong>Update</strong></li>
+        <li><strong>Delete</strong></li>
+      </ul>
+      <p>
+        For example, when you send a message in Slack, it <em>creates</em> a message that others can <em>read</em>. You can later <em>edit</em> or <em>delete</em> it.
+      </p>
+      <p>
+        Another example: in a TODO app, you <em>create</em> tasks, <em>read</em> them, <em>update</em> them as done, or <em>delete</em> them.
+      </p>
+
+      <h3>What is Node.js?</h3>
+      <p>
+        Node.js is a tool that lets you write backend code using JavaScript. Normally, JavaScript runs only in browsers. But Node.js allows it to run on your computer or server.
+      </p>
+      <ul>
+        <li>Store data and send it to the frontend</li>
+        <li>Talk to other services (like Slack bots)</li>
+        <li>Build APIs</li>
+      </ul>
+      <p>Think of Node.js as the engine that powers your backend with JavaScript.</p>
+
+      <h3>What about Express?</h3>
+      <p>
+        Express is a helper library built on top of Node.js that makes it much easier to build web servers and APIs.
+        If Node.js is like a raw car engine, Express adds the steering wheel, pedals, and doors so you can drive it.
+      </p>
+      <p>With Express, you can do things like:</p>
+      <ul>
+        <li>“When someone visits /profile, show their info.”</li>
+        <li>“When a user submits a form, save the data.”</li>
+        <li>“When someone accesses /home, return the homepage.”</li>
+      </ul>
+
+      <p>Example code using Express:</p>
+      <pre>
+        <div id="code-container">
+        <code>  
+          const express = require('express');  
+          const app = express();    
+          
+          app.get('/', (req, res) => {
+              res.send('Hello, world!');
+          })  
+          app.listen(3000, () => {    
+            console.log('Server is running on http://localhost:3000'); 0
+          });</code>
+      </div>
+      </pre>
+      <p>This creates a simple web server that returns "Hello, world!" at the root URL.</p>
+
+      <h3>What is an API?</h3>
+      <p>
+        API stands for <em>Application Programming Interface</em>. These are the rules for how data is exchanged between different parts of a program—or even between different programs.
+      </p>
+      <p>
+        For this YSWS, you'll use the <em>Fetch API</em> to send requests like GET, POST, PUT, and DELETE from the frontend to your backend server.
+      </p>
+      <p>
+        It might seem tricky at first, but by the end, you'll understand how it all connects!
+      </p>
+
+      <h3>Where can I find more information?</h3>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">MDN: Fetch API</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP" target="_blank">MDN: HTTP Guide</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs" target="_blank">MDN: Express + Node.js</a></li>
+        <li><a href="https://medium.com/@9cv9official/what-are-get-post-put-patch-delete-a-walkthrough-with-javascripts-fetch-api-17be31755d28" target="_blank">Fetch request types</a></li>
+        <li><a href="https://github.com/dalisc/fetch-api-tutorial" target="_blank">Fetch API tutorial (GitHub)</a></li>
+        <li><a href="https://www.freecodecamp.org/news/back-end-developer/" target="_blank">freeCodeCamp: Backend Developer Overview</a></li>
+        <li><a href="https://medium.com/@ibrahimhz/creating-your-first-backend-with-node-js-step-by-step-guide-892769af4cb0" target="_blank">Your First Backend with Node.js</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

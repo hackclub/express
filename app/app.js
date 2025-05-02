@@ -8,6 +8,7 @@ const PORT = 3000;
 
 // Middleware to parse JSON body
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../static')));
 
 // Enable CORS
 app.use(cors());
@@ -57,6 +58,12 @@ app.get('/messages', async (req, res) => {
         res.status(500).json({ error: 'Error reading messages' });
     }
 });
+
+// Return the static HTML file on root path
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../static/index.html'));
+});
+
 
 // Add a new message
 app.post('/messages', async (req, res) => {

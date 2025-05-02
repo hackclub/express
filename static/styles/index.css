@@ -1,0 +1,53 @@
+/* Reuse base styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    color: #ffffff;
+    background: url('../public/starbackground.gif') repeat center center fixed;
+    background-size: auto;
+    background-attachment: fixed;
+    background-position: center;
+  }
+  
+  /* Center the content */
+  #enter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    text-align: center;
+  }
+  
+  #enter-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  /* Styling the button */
+  #enter-button {
+    margin-top: 1rem;
+    background: none;
+    color: #000;
+    background-color: #ff00ff;
+    border: 1px solid #ff00ff;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 18px;
+    width: fit-content;
+    padding: 10px 20px;
+  }
+
+  #enter-button:hover {
+    background-color: #ff00cc;
+  }
+  
