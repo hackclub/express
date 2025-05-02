@@ -63,8 +63,8 @@ app.get('/messages', async (req, res) => {
 });
 
 // Return the static HTML file on root path
-app.get('/', (req, res) => {
-    const indexPath = path.join(__dirname, '../static/index.html');
+app.get('/home', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/home.html');
     console.log('Root handler: resolved index.html path:', indexPath);
     fs.access(indexPath, fs.constants.F_OK, (err) => {
         if (err) {

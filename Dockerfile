@@ -14,7 +14,7 @@ RUN npm install
 COPY app/ .
 
 # Copy frontend static files to NGINX root
-COPY static/ /var/www/html/
+COPY static/ /usr/src/static
 
 # Copy NGINX config
 COPY nginx/default.conf /etc/nginx/sites-available/default
