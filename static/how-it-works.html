@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>EXPRESS</title>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/home.css" />
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+        <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        style-src 'self' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        script-src 'self';
+        connect-src 'self';
+        img-src 'self';
+        ">
+
+    </head>      
+<body>
+    <header>
+        <h1>EXPRESS</h1>
+        <h2>Athena's Intro to Backend Programming Using Node.js & Express</h2>
+        <p>Code a backend – earn stickers, knowledge, and artifacts :3</p>
+        <br>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="how-it-works.html">How This Works</a></li>
+            <li><a href="info.html">Info</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </nav>
+      </header>
+  
+  <main>
+    <h3>Here's a break down on how the <a href="home.html">demo</a> works. Checkout the full code <a href="https://github.com/hackclub/express">here</a>!</h3>
+    <p>Let's explore together the backend of this app. <strong><em>In this particular case, we're exploring how our API works.</em></strong></p>
+    <p>We'll be using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> which defines how network requests(GET,PUT, POST, DELETE) are handled by an applications.</p>
+    <p>While you go through this demo, we highly encourage you to open your console (f12) and go to the network tab:3</p>
+    <br>
+    <p><strong>1. The frontend side is just a simple html form:</strong></p>
+    <p>(srry it doesn't display great on mobile)</p>
+    <div
+    id="code-container"
+    >
+    <pre>
+        <code>
+            // home.html
+
+            &lt;form id="message-form"&gt;
+              &lt;label for="nickname"&gt;Nickname:&lt;/label&gt;&lt;br/&gt;
+              &lt;input required type="text" id="nickname" name="nickname" placeholder="Your nickname" maxlength="50"&gt;
+            
+              &lt;label for="message"&gt;Send a message to other space explorers viewing this page&lt;/label&gt;&lt;br/&gt;
+              &lt;textarea placeholder="Your message" maxlength="256" id="message" cols="30" required&gt;&lt;/textarea&gt;&lt;br/&gt;
+            
+              &lt;button id="send-button" type="submit"&gt;
+                &lt;img src="/public/click.gif" alt="Send"&gt;
+              &lt;/button&gt;
+            &lt;/form&gt;
+        </code>
+    </pre>   
+    </div>
+    <br>
+    <div>
+    <form id="demo-message-form">
+    <label for="message">Write you message here</label><br/>
+    <textarea placeholder="Your message" maxlength="256" id="message" cols="30" required></textarea>
+    </form>
+    <br><br>
+    <p> <strong>2. This form is connected with the backend through a simple script:</strong></p> 
+    </div>
+    <div
+    id="code-container"
+    >
+    <pre>
+        <code>
+            //script.js
+
+            [....] the rest of the code
+
+            fetch('/messages', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message, nickname }),
+              })
+                .then(response => response.json())
+                .then(() => {
+                  loadMessages();
+                  messageInput.value = '';
+                })
+                .catch(error => {
+                  console.error('Error submitting message:', error);
+                });
+        </code>
+    </pre>
+    </div>
+    <div>
+        <p>This script is executed when the form is submitted. It makes a <strong>POST</strong> request to the backend <strong> /messages endpoint</strong> </p>
+        <button type="submit" form="demo-message-form">
+            Click to Make a POST request
+        </button>
+    </div>
+    <br>
+    <p><strong>3. The backend & the /message endpoint.</strong></p>
+    <div
+    id="code-container"
+    >
+        <pre>
+            <code>
+                // app.js
+
+                const app = express(); // initializing an app with express
+
+                [....] the rest of the code
+
+                // Add a new message
+                app.post('/messages', async (req, res) => {
+                    let { message, nickname } = req.body;
+                
+                    if (!message || typeof message !== 'string') {
+                        return res.status(400).json({ error: 'Invalid message' });
+                    }
+                
+                    // Default nickname to "Untitled" if missing or not a string
+                    if (!nickname || typeof nickname !== 'string' || nickname.trim() === '') {
+                        nickname = 'Untitled';
+                    }
+                
+                    try {
+                        const data = await loadMessages();
+                        const messages = data.messages || [];
+                
+                        // Ensure no more than 5 messages
+                        if (messages.length >= 5) {
+                            messages.shift(); // Remove the oldest message
+                        }
+                
+                        // Add new message object
+                        messages.push({ nickname, message });
+                
+                        await saveMessages(messages);
+                        res.json({ messages });
+                    } catch (err) {
+                        console.error('Error adding message:', err);
+                        res.status(500).json({ error: 'Error adding message' });
+                    }
+                });
+                
+            </code>
+        </pre> 
+    </div>
+    <p>In this code, when making a <strong>POST</strong> request to the <strong>/messages endpoint</strong> the <code>'app.post'</code> method (fancy word for built in function) is called and saves the message sent to a json file.</p>
+    <br>
+    <p><strong>4. Once this bit of code is finished executing, the message sent is saved in a <em>.json</em> file!</strong></p>
+    <div
+    id="code-container"
+    >
+        <pre>
+            <code>
+                // messages.json
+
+                {
+                    "messages": [
+                      {
+                        "nickname": "mynickname",
+                        "message": "my gr8 message"
+                      }
+                    ]
+                  }
+            </code>
+        </pre>
+    </div>
+    <br>
+    <p><strong>5. Finally, this is displayed in the frontend using a GET request</strong></p>
+    <div
+    id="code-container"
+    >
+    <pre>
+        <code>
+            // script.js
+
+            [...] the rest of your code
+
+
+            // The function that loads messages 
+            function loadMessages(){
+                fetch('/messages',
+                {
+                  method: 'GET',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  }
+                })
+            }
+
+            // calling the function when the page loads
+            loadMessages()
+
+
+            ---------
+
+
+            // app.js
+
+            [...] the rest of your code
+
+            // Get all messages
+            app.get('/messages', async (req, res) => {
+                try {
+                    const data = await loadMessages();
+                    res.json(data);
+                } catch (err) {
+                    console.error('Error reading messages:', err);
+                    res.status(500).json({ error: 'Error reading messages' });
+                }
+            });
+        </code>
+    </pre>
+    </div>
+    <p>When a <strong>GET</strong> request is made to the <strong>/messages endoint</strong> our backend (aka API) send all the saved messages back.</p>
+    <button
+    id="get-req-button"
+    type="button"
+    >
+        Click to make a GET request
+    </button>
+    <section>
+        <h3>Messages</h3>
+        <div id="demo-messages-container">
+          <p>Loading messages...</p>
+        </div>
+      </section>
+    <br>
+    <br>
+    <p>That's it! you should definitely send a message in the <a href="https://hackclub.slack.com/archives/C06T17NQB0B">#athena-award</a> chanel if you have questions OR checkout the <a href="resources.html">resources</a> page for additional details :3</p>
+  </main>
+  <script src="demo.js"></script>
+</body>
+</html>

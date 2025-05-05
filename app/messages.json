@@ -1,9 +1,24 @@
 {
   "messages": [
-    "qwqw",
-    "hioiiiii",
-    "hiiii\n",
-    "itsss meee",
-    "hiiiii"
+    {
+      "nickname": "orphy",
+      "message": "blabla i wanna eat"
+    },
+    {
+      "nickname": "orphy",
+      "message": "blabla i wanna eat"
+    },
+    {
+      "nickname": "orphy(demo)",
+      "message": "lorem ipsum"
+    },
+    {
+      "nickname": "orphy(demo)",
+      "message": "wewewe"
+    },
+    {
+      "nickname": "phoe3",
+      "message": "wewe"
+    }
   ]
 }

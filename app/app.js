@@ -63,8 +63,8 @@ app.get('/messages', async (req, res) => {
 });
 
 // Return the static HTML file on root path
-app.get('/home', (req, res) => {
-    const indexPath = path.join(__dirname, '../static/home.html');
+app.get('/', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/index.html');
     console.log('Root handler: resolved index.html path:', indexPath);
     fs.access(indexPath, fs.constants.F_OK, (err) => {
         if (err) {
@@ -76,13 +76,17 @@ app.get('/home', (req, res) => {
     });
 });
 
-
 // Add a new message
 app.post('/messages', async (req, res) => {
-    const { message } = req.body;
+    let { message, nickname } = req.body;
 
     if (!message || typeof message !== 'string') {
         return res.status(400).json({ error: 'Invalid message' });
+    }
+
+    // Default nickname to "Untitled" if missing or not a string
+    if (!nickname || typeof nickname !== 'string' || nickname.trim() === '') {
+        nickname = 'Untitled';
     }
 
     try {
@@ -91,16 +95,13 @@ app.post('/messages', async (req, res) => {
 
         // Ensure no more than 5 messages
         if (messages.length >= 5) {
-            messages.shift();  // Remove the oldest message
+            messages.shift(); // Remove the oldest message
         }
 
-        // Add the new message
-        messages.push(message);
+        // Add new message object
+        messages.push({ nickname, message });
 
-        // Save the updated messages
         await saveMessages(messages);
-
-        // Send the updated list of messages back
         res.json({ messages });
     } catch (err) {
         console.error('Error adding message:', err);
