@@ -149,3 +149,7 @@ code {
 #post-feedback {
   color: chartreuse;
 }
+
+#code-space-image {
+  width: 80vw;
+}

@@ -36,25 +36,33 @@
   
   <main>
     <section>
-      <h2>Express Yourself!</h2>
-      <form id="message-form">
-        <label for="nickname">Nickname:</label><br/>
-        <input required type="text" id="nickname" name="nickname" placeholder="Your nickname" maxlength="50"><br/>
-    
-        <label for="message">Send a message to other space explorers viewing this page</label><br/>
-        <textarea placeholder="Your message" maxlength="256" id="message" cols="30" required></textarea><br/>
-    
-        <button id="send-button" type="submit">
-          <img src="/public/click.gif" alt="Send">
-        </button>
-      </form>
-    </section>
-    
-    <section>
-      <h3>Messages</h3>
-      <div id="messages-container">
-        <p>Loading messages...</p>
-      </div>
+      <h2>No idea how to get started with Node.js? Follow this guide!</h2>
+      <p>
+        Not everyone has the same acces to the same machines and developer environment so we recommend that you use github codespaces!
+      </p>
+      <p>
+        First off, if you don't have a Github account, checkout <a href="https://tribute.athena.hackclub.com">Tribute</a>!
+      </p>
+      <p>
+        To start using Node.js in a codespace, navigate to <a href="https://github.com/pivilartisant/express_node_template">this repo</a> and follow the instructions in the readMe.
+      </p>
+      <p>
+        Once you've done that, you should have a browser window that looks like this:
+      </p>
+      <img id="code-space-image" src="/public/codespace.png" alt="">
+      <p>
+        Once you are there, navigate to the terminal and run the following command:
+      </p>
+      <pre>
+        <code>
+            node server.js
+        </code>
+      </pre>
+      <img src="/public/terminal.gif" alt="">
+      <p>
+        You should see a blank Hello World! appear!
+      </p>
+      <p>Now you can freely start experimenting with backend code!</p>
     </section>
   </main>
 
