@@ -76,4 +76,37 @@ document.getElementById('demo-message-form').addEventListener('submit', function
 
 
 
+function getAIResponse() {
+  fetch("https://ai.hackclub.com/chat/completions", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      messages: [
+        {
+          role: "system",
+          content: "Your response should be one sentence at maximum and be informative and understandable to a complete beginner. Don't respond with the following ideas: TOdo list app, weather API, user authentication system, specific products like mongoDB"
+        },
+        {
+          role: "user",
+          content: "generate 3 beginner Node.js/express projects"
+        }
+      ]
+    })
+  })
+    .then(res => res.json())
+    .then(data => {
+      const reply = data.choices[0].message.content;
+      document.getElementById('ai-response').textContent = reply;
+    })
+    .catch(err => {
+      console.error("Error getting AI response:", err);
+    });
+}
+
+
+document.getElementById('generate-ideas-button').addEventListener('click', () => {
+  getAIResponse();
+});
 

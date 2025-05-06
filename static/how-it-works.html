@@ -12,7 +12,7 @@
         style-src 'self' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
         script-src 'self';
-        connect-src 'self';
+        connect-src 'self' https://ai.hackclub.com;
         img-src 'self';
         ">
 
@@ -38,6 +38,7 @@
     <p>Let's explore together the backend of this app. <strong><em>In this particular case, we're exploring how our API works.</em></strong></p>
     <p>We'll be using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> which defines how network requests(GET,PUT, POST, DELETE) are handled by an application.</p>
     <p>While you go through this demo, we highly encourage you to open your console (f12) and go to the network tab:3</p>
+    <img src="/public/networktab.gif" alt="network tab gif">
     <br>
     <p><strong>1. The frontend side is just a simple html form:</strong></p>
     <p>(srry it doesn't display great on mobile)</p>
@@ -238,6 +239,31 @@
           <p>i dare you to press the GET request button :3</p>
         </div>
       </section>
+    <br>
+    <br>
+    <h3>Don't know what to build or the concept of backend is still blurry for you? Here are some examples/use cases!</h3>
+      <ul>
+        <li>Weather app where people leave commenst on how they are feeling! The backend will use this <a href="https://www.weatherapi.com/">free weather API</a> and save comments and usernames!</li>
+        <li>A calendar app to share events happening in you area. People can use the backend to update and add their own events!</li>
+        <li>A shopping list app that you can easily update with what you're craving! MAke a frontend that makes a GET request and renders it!</li>
+        <li>A slackbot that sends you a message everyday! You can change the message the slack bot send you using a UI or directly through a POST request!</li>
+        <li>An application for you grand parents to post some family pictures to! Bonus points if you add an auto translate feature!!</li>
+      </ul>
+      <br><br>
+      <div
+      id="code-container"
+      >
+      <p>
+        Don't like any of these, have an AI generate a list of three ideas for you to start working on!
+      </p>
+      <button type="button" id="generate-ideas-button">
+        generate some ideas!
+      </button>
+      
+      <p id="ai-response">
+        ideas... thought... help me with AI 
+      </p>
+    </div>
     <br>
     <br>
     <p>That's it! you should definitely send a message in the <a href="https://hackclub.slack.com/archives/C06T17NQB0B">#athena-award</a> channel if you have questions OR checkout the <a href="resources.html">resources</a> page for additional details :3</p>
