@@ -51,6 +51,11 @@ function saveMessages(messages) {
     });
 }
 
+// hello world example
+app.get('/hello_world', (req, res) => {
+    res.send('Hello, world!');
+})  
+
 // Get all messages
 app.get('/messages', async (req, res) => {
     try {

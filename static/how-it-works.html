@@ -36,7 +36,7 @@
   <main>
     <h3>Here's a break down on how the <a href="home.html">demo</a> works. Checkout the full code <a href="https://github.com/hackclub/express">here</a>!</h3>
     <p>Let's explore together the backend of this app. <strong><em>In this particular case, we're exploring how our API works.</em></strong></p>
-    <p>We'll be using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> which defines how network requests(GET,PUT, POST, DELETE) are handled by an applications.</p>
+    <p>We'll be using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> which defines how network requests(GET,PUT, POST, DELETE) are handled by an application.</p>
     <p>While you go through this demo, we highly encourage you to open your console (f12) and go to the network tab:3</p>
     <br>
     <p><strong>1. The frontend side is just a simple html form:</strong></p>
@@ -86,15 +86,15 @@
                   'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ message, nickname }),
-              })
-                .then(response => response.json())
-                .then(() => {
-                  loadMessages();
-                  messageInput.value = '';
-                })
-                .catch(error => {
-                  console.error('Error submitting message:', error);
-                });
+            })
+            .then(response => response.json())
+            .then(() => {
+              loadMessages();
+              messageInput.value = '';
+            })
+            .catch(error => {
+              console.error('Error submitting message:', error);
+            });
         </code>
     </pre>
     </div>
@@ -103,6 +103,7 @@
         <button type="submit" form="demo-message-form">
             Click to Make a POST request
         </button>
+        <div id="post-feedback"></div>
     </div>
     <br>
     <p><strong>3. The backend & the /message endpoint.</strong></p>
@@ -153,9 +154,9 @@
             </code>
         </pre> 
     </div>
-    <p>In this code, when making a <strong>POST</strong> request to the <strong>/messages endpoint</strong> the <code>'app.post'</code> method (fancy word for built in function) is called and saves the message sent to a json file.</p>
+    <p>In this code, when making a <strong>POST</strong> request to the <strong>/messages endpoint</strong> the <code>'app.post'</code> method (fancy word for built in function) is called and saves the message in a json file.</p>
     <br>
-    <p><strong>4. Once this bit of code is finished executing, the message sent is saved in a <em>.json</em> file!</strong></p>
+    <p><strong>4. Here is what the <em>.json</em> file looks like!</strong></p>
     <div
     id="code-container"
     >
@@ -175,7 +176,7 @@
         </pre>
     </div>
     <br>
-    <p><strong>5. Finally, this is displayed in the frontend using a GET request</strong></p>
+    <p><strong>5. Finally, a GET request is made on the /messages endpoint, which returns the messages contained in our .json file!</strong></p>
     <div
     id="code-container"
     >
@@ -221,22 +222,25 @@
         </code>
     </pre>
     </div>
-    <p>When a <strong>GET</strong> request is made to the <strong>/messages endoint</strong> our backend (aka API) send all the saved messages back.</p>
+    <p>Click to make a <strong>GET</strong> request is made to the <strong>/messages endoint</strong> our backend (aka API) sends all the saved messages back.</p>
     <button
     id="get-req-button"
     type="button"
     >
         Click to make a GET request
     </button>
-    <section>
+    <br><br>
+    <section
+    id="code-container"
+    >
         <h3>Messages</h3>
         <div id="demo-messages-container">
-          <p>Loading messages...</p>
+          <p>i dare you to press the GET request button :3</p>
         </div>
       </section>
     <br>
     <br>
-    <p>That's it! you should definitely send a message in the <a href="https://hackclub.slack.com/archives/C06T17NQB0B">#athena-award</a> chanel if you have questions OR checkout the <a href="resources.html">resources</a> page for additional details :3</p>
+    <p>That's it! you should definitely send a message in the <a href="https://hackclub.slack.com/archives/C06T17NQB0B">#athena-award</a> channel if you have questions OR checkout the <a href="resources.html">resources</a> page for additional details :3</p>
   </main>
   <script src="demo.js"></script>
 </body>

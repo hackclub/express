@@ -34,11 +34,13 @@
       </header>
   
   <main>
-    <section>
-      <h2>Technical Guide and Resources</h2>
+    <h2>Technical Guide and Resources</h2>
+    <section
+    id="code-container"
+    >
 
       <h3>What is CRUD?</h3>
-      <p>It stands for:</p>
+      <p>CRUD stands for:</p>
       <ul>
         <li><strong>Create</strong></li>
         <li><strong>Read</strong></li>
@@ -46,27 +48,25 @@
         <li><strong>Delete</strong></li>
       </ul>
       <p>
-        For example, when you send a message in Slack, it <em>creates</em> a message that others can <em>read</em>. You can later <em>edit</em> or <em>delete</em> it.
+        For example, when you send a message in Slack, it <em>creates</em> a message that others can <em>read</em>. You can later <em>edit</em> or <em>delete</em> it. In a TODO app, you <em>create</em> tasks, <em>read</em> them, <em>update</em> them as done, or <em>delete</em> them.
       </p>
-      <p>
-        Another example: in a TODO app, you <em>create</em> tasks, <em>read</em> them, <em>update</em> them as done, or <em>delete</em> them.
-      </p>
-
+      <br><br>
       <h3>What is Node.js?</h3>
       <p>
         Node.js is a tool that lets you write backend code using JavaScript. Normally, JavaScript runs only in browsers. But Node.js allows it to run on your computer or server.
       </p>
+      <p>Some of the things you can do with Node.js:</p>
       <ul>
         <li>Store data and send it to the frontend</li>
         <li>Talk to other services (like Slack bots)</li>
         <li>Build APIs</li>
       </ul>
       <p>Think of Node.js as the engine that powers your backend with JavaScript.</p>
-
-      <h3>What about Express?</h3>
+      <br><br>
+      <h3>What is Express?</h3>
       <p>
         Express is a helper library built on top of Node.js that makes it much easier to build web servers and APIs.
-        If Node.js is like a raw car engine, Express adds the steering wheel, pedals, and doors so you can drive it.
+        If Node.js is like a car engine, Express adds the steering wheel, pedals, and doors so you can drive it.
       </p>
       <p>With Express, you can do things like:</p>
       <ul>
@@ -82,27 +82,33 @@
           const express = require('express');  
           const app = express();    
           
-          app.get('/', (req, res) => {
+          app.get('/hello_world', (req, res) => {
               res.send('Hello, world!');
           })  
-          app.listen(3000, () => {    
-            console.log('Server is running on http://localhost:3000'); 0
-          });</code>
+          </code>
       </div>
       </pre>
-      <p>This creates a simple web server that returns "Hello, world!" at the root URL.</p>
-
+      <a href="/hello_world" target="_blank">
+        <button type="button">Click here to see what this code does</button>
+      </a>      
+      <br><br>
       <h3>What is an API?</h3>
       <p>
-        API stands for <em>Application Programming Interface</em>. These are the rules for how data is exchanged between different parts of a program—or even between different programs.
+        API stands for <em>Application Programming Interface</em>. an API defines how data/information is exchanged between different parts of a program—or even between different programs.
       </p>
       <p>
-        For this YSWS, you'll use the <em>Fetch API</em> to send requests like GET, POST, PUT, and DELETE from the frontend to your backend server.
+       <strong> For this YSWS, you'll use the <em>Fetch API</em> to send requests like GET, POST, PUT, and DELETE from the frontend to your backend server.</strong>
       </p>
       <p>
         It might seem tricky at first, but by the end, you'll understand how it all connects!
       </p>
-
+      <br><br>
+      <h3>How do I deploy my application?</h3>
+      <p>
+        There are many ways you can deploy a node application. One of these ways is through selfhosting, but you'll probably learn more about that later! for now, we recommend using <a href="https://alphasec.io/how-to-deploy-a-nodejs-app-on-railway/">railway app (free)!</a>
+      </p>
+      
+      <br> <br>
       <h3>Where can I find more information?</h3>
       <ul>
         <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" target="_blank">MDN: Fetch API</a></li>
@@ -110,8 +116,13 @@
         <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs" target="_blank">MDN: Express + Node.js</a></li>
         <li><a href="https://medium.com/@9cv9official/what-are-get-post-put-patch-delete-a-walkthrough-with-javascripts-fetch-api-17be31755d28" target="_blank">Fetch request types</a></li>
         <li><a href="https://github.com/dalisc/fetch-api-tutorial" target="_blank">Fetch API tutorial (GitHub)</a></li>
-        <li><a href="https://www.freecodecamp.org/news/back-end-developer/" target="_blank">freeCodeCamp: Backend Developer Overview</a></li>
+        <li><a href="https://www.freecodecamp.org/news/back-end-developer/" target="_blank">FreeCodeCamp: Backend Developer Overview</a></li>
         <li><a href="https://medium.com/@ibrahimhz/creating-your-first-backend-with-node-js-step-by-step-guide-892769af4cb0" target="_blank">Your First Backend with Node.js</a></li>
+        <li>
+          <a href="
+          https://vercel.com/guides/using-express-with-vercel">Using Express.js with Vercel</a>
+        </li>
+        <li><a href="https://alphasec.io/how-to-deploy-a-nodejs-app-on-railway/">How to Deploy a Node.js App on Railway</a></li>
       </ul>
     </section>
   </main>

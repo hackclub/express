@@ -33,21 +33,23 @@ document.getElementById('demo-message-form').addEventListener('submit', function
   event.preventDefault();
 
   const messageInput = document.getElementById('message');
-
+  const feedbackElement = document.getElementById('post-feedback');
   let message = messageInput.value.trim();
-
-
   let nickname = 'orphy';
 
-  // Basic XSS filter: reject message if it contains script tags or angle brackets
-  const xssPattern = /[<>]/;  // Optionally include other symbols like ["'`()] depending on your threat model
+  // Basic XSS filter
+  const xssPattern = /[<>]/;
 
   if (xssPattern.test(message)) {
-    alert('Your message contains forbidden characters.');
+    feedbackElement.textContent = 'Your message contains forbidden characters.';
+    feedbackElement.style.color = 'red';
     return;
   }
 
   if (message !== '') {
+    feedbackElement.textContent = 'Submitting...';
+    feedbackElement.style.color = 'black';
+
     fetch('/messages', {
       method: 'POST',
       headers: {
@@ -58,12 +60,20 @@ document.getElementById('demo-message-form').addEventListener('submit', function
       .then(response => response.json())
       .then(() => {
         messageInput.value = '';
+        feedbackElement.textContent = 'Message submitted!';
+        feedbackElement.style.color = 'green';
+        setTimeout(() => {
+          feedbackElement.textContent = '';
+        }, 2000);
       })
       .catch(error => {
         console.error('Error submitting message:', error);
+        feedbackElement.textContent = 'Error submitting message.';
+        feedbackElement.style.color = 'red';
       });
   }
 });
+
 
 
 
