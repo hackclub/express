@@ -25,21 +25,23 @@
         <br>
         <nav>
           <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="how-it-works.html">How Backend Works</a></li>
-            <li><a href="deploy.html">Get started</a></li>
-            <li><a href="info.html">Info</a></li>
-            <li><a href="resources.html">Resources</a></li>
+            <li><a href="home.html">1. Home</a></li>
+            <li><a href="info.html">2. Info</a></li>
+            <li><a href="how-it-works.html">3. How Backend Works</a></li>
+            <li><a href="deploy.html">4. Get started</a></li>
+            <li><a href="resources.html">5. Resources</a></li>
+            <li><a href="submit.html">6. Submit</a></li>
           </ul>
         </nav>
       </header>
   
   <main>
-    <h3>Here's a break down on how the <a href="home.html">demo</a> works. Checkout the full code <a href="https://github.com/hackclub/express">here</a>!</h3>
-    <p>Let's explore together the backend of this app. <strong><em>In this particular case, we're exploring how our API works.</em></strong></p>
-    <p>We'll be using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> which defines how network requests(GET,PUT, POST, DELETE) are handled by an application.</p>
+    <h3>Here's a break down on how the <a href="home.html">home_page/demo/api</a> works. Checkout the full code <a href="https://github.com/hackclub/express">here</a>!</h3>
+    <p>Let's explore together the backend of this app. <strong><em>In this particular case, something we're gonna break down what we call an API.</em></strong></p>
+    <br>
+    <p>This app uses the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a> which defines how network requests(GET,PUT, POST, DELETE) are handled by an application.</p>
     <p>While you go through this demo, we highly encourage you to open your console (f12) and go to the network tab:3</p>
-    <img src="/public/networktab.gif" alt="network tab gif">
+    <img id="how-image" src="/public/networktab.gif" alt="network tab gif">
     <br>
     <p><strong>1. The frontend side is just a simple html form:</strong></p>
     <p>(srry it doesn't display great on mobile)</p>
@@ -177,7 +179,7 @@
             </code>
         </pre>
     </div>
-    <br>
+    <br><br>
     <p><strong>5. Finally, a GET request is made on the /messages endpoint, which returns the messages contained in our .json file!</strong></p>
     <div
     id="code-container"

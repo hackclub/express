@@ -1,14 +1,15 @@
 /* Base Styling */
 html, body {
-  height: 100vh;
+  height: 100%;
   max-width: 100vw;
   padding: 10px;
   font-family: 'Courier New', monospace;
   color: #ffffff;
-  background: url('../public/starbackground.gif') repeat center center fixed;
+  background: url('../public/starbackground.gif');
   background-size: auto;
   background-attachment: fixed;
   background-position: center;
+  background-repeat: repeat;
 }
 
 /* Nav Bar Styling */
@@ -64,6 +65,7 @@ nav li a:hover {
 /* Content Styling */
 main {
   max-width: 80vw;
+  height: fit-content;
   margin: 0 auto;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.2); /* 70% opacity */
@@ -149,10 +151,23 @@ code {
   color: chartreuse;
 }
 
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+
 #post-feedback {
   color: chartreuse;
 }
 
 #code-space-image {
   width: 100%;
+}
+
+#how-image {
+  width: 40%;
 }
