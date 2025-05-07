@@ -19,7 +19,7 @@ nav {
   height: fit-content;
 }
 
-nav ul {
+nav ol {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

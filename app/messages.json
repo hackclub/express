@@ -1,10 +1,6 @@
 {
   "messages": [
     {
-      "nickname": "orphy(demo)",
-      "message": "wewewe"
-    },
-    {
       "nickname": "phoe3",
       "message": "wewe"
     },
@@ -19,6 +15,10 @@
     {
       "nickname": "orphy",
       "message": "sdsds"
+    },
+    {
+      "nickname": "phoe3",
+      "message": "sdsd"
     }
   ]
 }
