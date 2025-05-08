@@ -1,20 +1,71 @@
 /* Base Styling */
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  max-width: 100vw;
+  padding: 10px;
   font-family: 'Courier New', monospace;
   color: #ffffff;
-  background: url('../public/starbackground.gif') repeat center center fixed;
+  background: url('../public/starbackground.gif');
   background-size: auto;
   background-attachment: fixed;
   background-position: center;
+  background-repeat: repeat;
+}
+
+/* Nav Bar Styling */
+nav {
+  background: transparent;
+  width: 90vw;
+  height: fit-content;
+}
+
+nav ol {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+nav li a {
+  font-family: 'Press Start 2P', cursive;
+  text-decoration: none;
+  color: chartreuse;
+  border: 2px solid chartreuse;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+}
+
+nav li a:hover {
+  background: linear-gradient(145deg, #ff77ff, #ff00ff);
+  color: black;
+  border-color: #ff00ff;
+  text-shadow: 0 0 2px #000;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav li a {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 
 /* Content Styling */
 main {
-  max-width: 900px;
+  max-width: 80vw;
+  height: fit-content;
   margin: 0 auto;
   padding: 2rem;
   background: rgba(0, 0, 0, 0.2); /* 70% opacity */
@@ -28,11 +79,15 @@ main {
 header {
   background: rgba(0, 0, 0, 0.7); /* 70% opacity */
   color: chartreuse;
-  padding: 3rem 1rem;
   text-align: center;
   border-radius: 10px;
   margin-bottom: 2rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
 }
 
 /* Form Styling */
@@ -43,6 +98,10 @@ form {
   border-radius: 6px;
   margin-top: 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#message {
+  max-width: 300px;
 }
 
 /* Message container Styling */
@@ -62,13 +121,16 @@ form {
   padding: 0.5rem;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
 }
 
 /* Buttons */
 #send-button {
   margin-top: 1rem;
   background: none;
-  color: #000;
+  color: white;
   border: 1px solid #ff00ff;
   border-radius: 4px;
   cursor: pointer;
@@ -82,4 +144,34 @@ button:hover {
 
 a {
   color: chartreuse;
+}
+
+
+code {
+  color: chartreuse;
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+
+#post-feedback {
+  color: chartreuse;
+}
+
+#code-space-image {
+  width: 100%;
+}
+
+#how-image {
+  width: 40%;
+}
+
+#deploy-video {
+  width: 100%;
 }

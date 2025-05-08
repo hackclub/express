@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>EXPRESS</title>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/home.css" />
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+        <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        style-src 'self' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        script-src 'self';
+        connect-src 'self';
+        img-src 'self';
+        ">
+
+    </head>      
+<body>
+  <header>
+    <h1>EXPRESS</h1>
+    <h2>Athena's Intro to Backend Programming Using Node.js & Express</h2>
+    <p>Code a backend – earn stickers, knowledge, and artifacts :3</p>
+    <br>
+    <nav>
+      <ol>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="info.html">Info</a></li>
+        <li><a href="how-it-works.html">How Backend Works</a></li>
+        <li><a href="start.html">Get started</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="deploy.html">Deploy</a></li>
+        <li><a href="submit.html">Submit</a></li>
+      </ol>
+    </nav>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Here is how to deploy your node app using railway (it's free)</h2>
+      <video id="deploy-video" src="/public/deploy_railway.mp4" controls></video>
+      <ol>
+        <li>Create an account for railway app using your github</li>
+        <li>Go to <a href="https://railway.com/" target="_blank">the railway app</a></li>
+        <li>
+          Click 'Deploy a new project'
+        </li>
+        <li>
+          Select the Node.js app you want to deploy
+        </li>
+        <li>
+          Wait for the deployement flow to be done
+        </li>
+        <li>
+          Navigate to the settings section
+        </li>
+        <li>
+          Find the networking tab
+        </li>
+        <li>
+          Click generate a domain
+        </li>
+        <li>
+          Poof! You've got a backend in production!
+        </li>
+        <li>
+          Now you have a link that will be your deployement link that you'll share with us when u submit!
+        </li>
+        <li>
+          p.s you may need to setup custom build commands in the settings tabs. For example if you use <code>node server.js</code> to launch your app, you'll need to double check that this command is used! 
+        </li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

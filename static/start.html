@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>EXPRESS</title>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/home.css" />
+        <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+        <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        style-src 'self' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        script-src 'self';
+        connect-src 'self';
+        img-src 'self';
+        ">
+
+    </head>      
+<body>
+  <header>
+    <h1>EXPRESS</h1>
+    <h2>Athena's Intro to Backend Programming Using Node.js & Express</h2>
+    <p>Code a backend – earn stickers, knowledge, and artifacts :3</p>
+    <br>
+    <nav>
+      <ol>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="info.html">Info</a></li>
+        <li><a href="how-it-works.html">How Backend Works</a></li>
+        <li><a href="start.html">Get started</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="deploy.html">Deploy</a></li>
+        <li><a href="submit.html">Submit</a></li>
+      </ol>
+    </nav>
+  </header>
+  
+  <main>
+    <section>
+      <h2>No idea how to get started with Node.js? Follow this guide!</h2>
+      <p>
+        Not everyone has access to a developer environment so we recommend that you use <a href="https://github.com/features/codespaces" target="_blank">Github codespaces</a>!
+      </p>
+      <p>
+       <em> A codespace is an online IDE (Integrated development environment) where you can write and execute code! </em>
+      </p>
+    </section>
+      <br>
+        <div id="code-container">
+            <p>
+              First off, if you don't have a Github account, checkout <a href="https://tribute.athena.hackclub.com">Tribute</a>!
+            </p>
+        </div>
+      <br>
+      <section
+      id="code-container"
+      >
+      <p>
+        To start using Node.js in a codespace, navigate to <a href="https://github.com/hackclub/express_node_template">this repo</a> and follow the instructions in the readMe.
+      </p>
+      <p>
+        Once you've done that, you should have a 'codespace' that looks like this:
+      </p>
+      <img id="code-space-image" src="/public/codespace.png" alt="">
+      <p>
+        Once you are there, navigate to the terminal and run the following command:
+      </p>
+      <pre
+      id="code-container"
+      >
+        <code>
+            node server.js
+        </code>
+      </pre>
+      <p>
+        You should see a blank Hello World! appear!
+      </p>
+      <img id="code-space-image" src="/public/terminal.gif" alt="">
+      <strong><p>Congrats! You're now a backend developer!</p></strong>
+    </section>
+    <br><br>
+    <section
+    id="code-container"
+    >
+        <h2>Here is some more information you probably should know!</h2>
+        <ul>
+            <li>
+                To stop you node application, press ctrl+c in the terminal!
+            </li>
+            <li>
+                Changes made to your code will only reflect if you stop and start is again!
+            </li>
+            <li>
+                That's annoying and takes time, so consider adding <a href="https://www.npmjs.com/package/nodemon">nodemon</a> to your code! p.s this will probably be your first npm package install!!
+            </li>
+            <li>
+                NPM stands for <em>Node Package Manager</em>, its like a plugin library for javascript!
+            </li>
+            <li>
+                Some people prefer <a href="https://yarnpkg.com/">Yarn</a> to <a href="https://www.npmjs.com/">NPM</a>, to each is their own!
+            </li>
+            <li>
+                If you write <code>ls</code> in the terminal you will see all your files in the folder!
+            </li>
+        </ul>
+    </section>
+  </main>
+</body>
+</html>
