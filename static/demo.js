@@ -35,7 +35,7 @@ document.getElementById('demo-message-form').addEventListener('submit', function
   const messageInput = document.getElementById('message');
   const feedbackElement = document.getElementById('post-feedback');
   let message = messageInput.value.trim();
-  let nickname = 'orphy';
+  let nickname = 'orphy-bot';
 
   // Basic XSS filter
   const xssPattern = /[<>]/;

@@ -53,6 +53,7 @@ function saveMessages(messages) {
 
 // hello world example
 app.get('/hello_world', (req, res) => {
+    console.log("hello world")
     res.send('Hello, world!');
 })  
 
@@ -67,19 +68,103 @@ app.get('/messages', async (req, res) => {
     }
 });
 
-// Return the static HTML file on root path
-app.get('/', (req, res) => {
-    const indexPath = path.join(__dirname, '../static/index.html');
-    console.log('Root handler: resolved index.html path:', indexPath);
+// Return the static HTML file on home path
+app.get('/home', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/home.html');
+    console.log('Root handler: resolved home.html path:', indexPath);
     fs.access(indexPath, fs.constants.F_OK, (err) => {
         if (err) {
-            console.error('index.html does not exist at:', indexPath);
+            console.error('home.html does not exist at:', indexPath);
         } else {
-            console.log('index.html found at:', indexPath);
+            console.log('home.html found at:', indexPath);
         }
         res.sendFile(indexPath);
     });
 });
+
+// Return the static HTML file on deploy path
+app.get('/deploy', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/deploy.html');
+    console.log('Root handler: resolved deploy.html path:', indexPath);
+    fs.access(indexPath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('deploy.html does not exist at:', indexPath);
+        } else {
+            console.log('deploy.html found at:', indexPath);
+        }
+        res.sendFile(indexPath);
+    });
+});
+
+// Return the static HTML file on how-backend-works path
+app.get('/how-backend-works', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/how-backend-works.html');
+    console.log('Root handler: resolved how-backend-works.html path:', indexPath);
+    fs.access(indexPath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('how-backend-works.html does not exist at:', indexPath);
+        } else {
+            console.log('how-backend-works.html found at:', indexPath);
+        }
+        res.sendFile(indexPath);
+    });
+});
+
+// Return the static HTML file on info path
+app.get('/info', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/info.html');
+    console.log('Root handler: resolved info.html path:', indexPath);
+    fs.access(indexPath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('info.html does not exist at:', indexPath);
+        } else {
+            console.log('info.html found at:', indexPath);
+        }
+        res.sendFile(indexPath);
+    });
+});
+
+// Return the static HTML file on resources path
+app.get('/resources', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/resources.html');
+    console.log('Root handler: resolved resources.html path:', indexPath);
+    fs.access(indexPath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('resources.html does not exist at:', indexPath);
+        } else {
+            console.log('resources.html found at:', indexPath);
+        }
+        res.sendFile(indexPath);
+    });
+});
+
+// Return the static HTML file on start path
+app.get('/start', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/start.html');
+    console.log('Root handler: resolved start.html path:', indexPath);
+    fs.access(indexPath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('start.html does not exist at:', indexPath);
+        } else {
+            console.log('start.html found at:', indexPath);
+        }
+        res.sendFile(indexPath);
+    });
+});
+// Return the static HTML file on submit path
+app.get('/submit', (req, res) => {
+    const indexPath = path.join(__dirname, '../static/submit.html');
+    console.log('Root handler: resolved submit.html path:', indexPath);
+    fs.access(indexPath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('submit.html does not exist at:', indexPath);
+        } else {
+            console.log('submit.html found at:', indexPath);
+        }
+        res.sendFile(indexPath);
+    });
+});
+
 
 // Add a new message
 app.post('/messages', async (req, res) => {
